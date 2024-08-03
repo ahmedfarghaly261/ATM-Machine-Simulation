@@ -1,6 +1,6 @@
-print("enter ur card number")
+print("enter your card ")
 password=1234
-pin=int(input("enter ur password : "))
+pin=int(input("enter your password : "))
 
 if pin==password:
     while True:
@@ -14,38 +14,43 @@ if pin==password:
             5==exit
             """)
         #current balance = 5000
-        option=int(input("enter number from the list"))
+        option=int(input("enter number from the list : "))
         if option==1:
             print(f"balance = {balance}")
             
         #cash withdrawal 
         if option ==2:
             amount=int(input("enter the withdraw amount : "))
-            balance=balance-amount
-            print(f"{amount} is debited from ur account")
-            print(f"ur account balance is : {balance}")
+            if amount>balance:
+                print("the amount is grater than balance")
+                break
+            else:
+                balance=balance-amount
+                print(f"{amount} is debited from your account")
+                print(f"your current account balance is : {balance}")
             
         #cash deposit
         if option == 3:
             CashDeposit=int(input("enter the Cash deposit : "))
             balance=balance+CashDeposit
-            print(f"ur current balance is : {balance}")
+            print(f"your current balance is : {balance}")
             
         #change password
         if option ==4:
-            print("change ur password! ")
+            print("change your password! ")
             oldPassword=int(input("enter the old password"))
             if oldPassword==password:
-                newpassword=int(input("enter ur new password"))
+                newpassword=int(input("enter your new password"))
                 password=newpassword
-                print(f"done  ur new password is : {password}")
+                print(f"done  your new password is : {password}")
+            else:
+                print("incorrect password")
+                break
             
-        
+        #exit
         if option==5:
             break
             
-        
-        # else:
-        #     print("wrong choses ")
-    
+else:
+    print("incorrect password .... try again")
 
